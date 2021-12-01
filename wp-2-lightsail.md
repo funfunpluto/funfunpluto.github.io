@@ -8,7 +8,7 @@
 
 mysqldump -p plutwp > pluto.sql ```
 
-####Start a Lightsail wp instance and connect through ssh 
+#### Start a Lightsail wp instance and connect through ssh 
 From Connection section to retrieve the instance's public IP address
 Download the default private key LightsailDefaultKey-az.cer 
 
