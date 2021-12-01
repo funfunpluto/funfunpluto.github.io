@@ -4,9 +4,9 @@
 ```tar -zcvf pluto.tar pluto ```
 
 #### Make a copy of original mysql db 
-```cd /var/lib/mysql 
+```cd /var/lib/mysql ```
 
-mysqldump -p plutwp > pluto.sql ```
+```mysqldump -p plutwp > pluto.sql ```
 
 #### Start a Lightsail wp instance and connect through ssh 
 From Connection section to retrieve the instance's public IP address
