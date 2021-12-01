@@ -1,7 +1,10 @@
 # Step 1: Migrate the Content 
 
 #### Make a copy of original wordpress content 
-```tar -zcvf pluto.tar pluto ```
+>
+```
+tar -zcvf pluto.tar pluto 
+```
 
 #### Make a copy of original mysql db 
 ```
@@ -12,11 +15,15 @@ mysqldump -p plutwp > pluto.sql 
 #### Start a Lightsail wp instance and connect through ssh 
 > From Connection section to retrieve the instance's public IP address
 > Download the default private key LightsailDefaultKey-az.cer 
-
-```ssh bitnami@public-ip -i LightsailDefaultKey-az.cer ```
+> 
+```
+ssh bitnami@public-ip -i LightsailDefaultKey-az.cer 
+```
 
 #### Retrieve the application password
-```cat bitnami_application_password```
+```
+cat bitnami_application_password
+```
 
 #### Access Wordpress site through Internet 
 > To login the wp instance, http://publicip/wp-admin
@@ -27,12 +34,16 @@ password: same as the application password 
 ```
 
 #### Upload original wp files to Lightsail instance	
-```scp pluto* publicip:```
+```
+scp pluto* publicip:
+```
 
 #### Create database and mysql user on Lightsail Instance 	
 > Login mysql in Lightsail instance, password is same as the application password
 
-```mysql -p ```
+```
+mysql -p 
+```
 
 > Database name, mysql user and its password can be found from the original wp site's wp-config.php file 
 
@@ -44,12 +55,16 @@ FLUSH PRIVILEGES;
 ```
 
 #### Migrate the wordpress database to the Lightsail instance 	
-```mysql -p plutowp < plutowp.sql ```
+```
+mysql -p plutowp < plutowp.sql 
+```
 
 ####Modify the new wp-config.php	
 > unpack the original wp content
 
-```tar -zxvf pluto.tar . ```
+```
+tar -zxvf pluto.tar . 
+```
 
 > from its wp-config.php copy the following lines and paste to /opt/bitnami/apps/wordpress/htdocs/wp-config.php and remove the existing correspondent lines  
 
